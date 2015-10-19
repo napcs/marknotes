@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+      article {
+        border: 1px solid #DDD;
+        box-shadow: 5px 5px 5px #DDD;
+        padding: 1em;
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+    <footer>
+      <p>Note created with <%=link_to "MarkNotes", root_url %>. Create your own account and start sharing!</p>
+
+    </footer>
+  </body>
+</html>
+

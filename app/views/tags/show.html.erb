@@ -1,0 +1,21 @@
+<h1>Showing notes tagged with "<%= @name %>"</h1>
+
+<% if @notes.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Tags</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "/notes/note", collection: @notes %>
+    </tbody>
+
+  </table>
+
+<% else %>
+  <p>No notes match that tag.</p>
+
+<% end %>

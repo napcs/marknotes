@@ -1,0 +1,38 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Recent Notes</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Tags</th>
+          <td>Last updated</td>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render partial: "/notes/note", collection: @recent_notes %>
+      </tbody>
+    </table>
+    <p><%= link_to "All Notes", notes_path, class: "btn btn-primary" %></p>
+  </div>
+</div>
+
+<div class="row">
+  <section class="col-md-12">
+    <h2>Most used tags</h2>
+
+    <div>
+      <% @most_used_tags.each do |tag| %>
+        <%=link_to tag.name, tag_path(tag.name), class: "btn btn-default" %>
+      <% end %>
+    </div>
+
+    <p><%= link_to "All Tags", tags_path, class: "btn btn-primary" %></p>
+
+  </section>
+
+</div>

@@ -1,0 +1,14 @@
+<h1>Tags</h1>
+
+<% @grouped.keys.sort.each do |letter| %>
+  <a href="#<%= letter %>"><%= letter %></a>&nbsp;
+<% end %>
+
+<% @grouped.keys.sort.each do |letter| -%>
+  <h2 id="<%= letter %>"><%= letter %></h2>
+    <ul>
+      <% @grouped[letter].each do |tag| -%>
+        <li><%= link_to tag.name, tag_path(url_encode(tag.name)) %></li>
+      <% end -%>
+    </ul>
+<% end -%>

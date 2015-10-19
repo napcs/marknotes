@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to note.title, edit_note_path(note) %></td>
+  <td><%= note.tag_list %></td>
+  <td><%= time_ago_in_words(note.updated_at) %> ago</td>
+  <td>
+    <%= link_to note, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } do %>
+      <span class="glyphicon glyphicon-trash" aria-hidden="true">
+    <% end %>
+  </td>
+</tr>

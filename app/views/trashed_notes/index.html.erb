@@ -1,0 +1,28 @@
+<% if @notes.any? %>
+
+  <%= link_to 'Empty Trash', empty_trashed_notes_path(@note), method: :delete, class: "btn btn-default" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Tags</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @notes.each do |note| %>
+        <tr>
+          <td><%= link_to note.title, edit_note_path(note) %></td>
+          <td><%= note.tag_list %></td>
+
+          <td><%= link_to 'Restore', restore_trashed_note_path(note), method: :put, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>The trash is empty. Go to your <%= link_to "Dashboard", user_root_path %></p>
+
+<% end %>

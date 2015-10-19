@@ -1,0 +1,14 @@
+<h1><%= @note.title %></h1>
+
+<% if @note.tags.any? %>
+  <p>
+    <strong>Tagged with</strong>
+    <%= @note.tag_list.to_s %>
+  </p>
+<% end %>
+
+<article class="note">
+  <%= markdown_to_html @note.body %>
+</article>
+
+

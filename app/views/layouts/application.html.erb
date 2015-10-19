@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Markdown</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="nav navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#marked_navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="/">MarkNotes</a>
+            <% if user_signed_in? %>
+              <%= link_to "New Note", new_note_path, method: :get, class: "btn btn-default navbar-btn" %>
+            <% end %>
+          </div>
+          <div class="collapse navbar-collapse" id="marked_navbar">
+            <% if user_signed_in? %>
+              <%= form_tag notes_path, method: :get, class: "navbar-form navbar-left" do %>
+                <div class="form-group">
+                  <input type="text" name="query" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              <% end %>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li role="presentation"><%= link_to "Dashboard", user_root_path %></li>
+                <li role="presentation">
+                  <%= link_to trashed_notes_path do %>
+                    Trash <span class="badge"><%=@deleted_notes_count %></span>
+                  <% end %>
+                </li>
+                <li><%= link_to current_user.email, edit_user_registration_path %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete  %></li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Create Account", new_user_registration_path %></li>
+                <li><%= link_to "Log In", new_user_session_path %></li>
+              </ul>
+
+            <% end %>
+          </div>
+
+        </div>
+      </nav>
+      <p id="notice"><%= notice %></p>
+
+
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h1>Create Notes And Share Stuff</h1>
+  <p>Get your own personal notebook. Search, tag, organize, and share your notes with everyone!</p>
+
+  <%= link_to "Sign Up For Free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>How It Works</h2>
+    <p>Capture your notes using Markdown and see a live preview as you work</p>
+    <ul>
+      <li>Jot down your ideas</li>
+      <li>Organize them with tags</li>
+      <li>Search through notes for text</li>
+      <li>Share notes</li>
+    </ul>
+
+    <%= link_to "Get Started Now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  </div>
+
+  <div id="marketing" class="col-md-8">
+    <figure>
+      <%=image_tag "screenshot.png", alt: "the markdown interface with live preview" %>
+    </figure>
+
+  </div>
+
+</div>

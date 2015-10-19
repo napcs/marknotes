@@ -1,0 +1,14 @@
+<h2><%= @note.title %></h2>
+
+<p>
+  <strong>Tagged with: </strong>
+  <%= @note.tags %>
+</p>
+
+<hr>
+
+<%= markdown_to_html @note.body %>
+
+<hr>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
